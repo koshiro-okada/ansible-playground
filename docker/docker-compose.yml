@@ -29,3 +29,11 @@ services:
     hostname: managed-node-2
     privileged: true
     command: /sbin/init
+  managed-node-3:
+    build:
+      context: .
+      dockerfile: ./managed-nodes/Dockerfile
+    container_name: managed-node-3
+    hostname: managed-node-3
+    privileged: true
+    command: /sbin/init
