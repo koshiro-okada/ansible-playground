@@ -1,0 +1,7 @@
+- name: Setup Apache
+  hosts: web_servers
+  gather_facts: true
+
+  roles:
+    - role: install_apache
+      tags: install_apache

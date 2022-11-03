@@ -1,0 +1,15 @@
+- name: run "echo helloworld"
+  command: echo helloworld
+  register: result
+
+- name: check pattern1
+  assert:
+    that: check_word in result.stdout
+  vars:
+    check_word: "helloworld"
+
+- name: check pattern2
+  assert:
+    that: result.stdout.find(check_word) != -1
+  vars:
+    check_word: "helloworld"

@@ -1,0 +1,31 @@
+version: "3"
+services:
+  control-node:
+    build:
+      context: .
+      dockerfile: ./control-node/Dockerfile
+    container_name: control-node
+    hostname: control-node
+    privileged: true
+    tty: true
+    volumes:
+      - type: bind
+        source: "../ansible"
+        target: "/root/ansible"
+
+  managed-node-1:
+    build:
+      context: .
+      dockerfile: ./managed-nodes/Dockerfile
+    container_name: managed-node-1
+    hostname: managed-node-1
+    privileged: true
+    command: /sbin/init
+  managed-node-2:
+    build:
+      context: .
+      dockerfile: ./managed-nodes/Dockerfile
+    container_name: managed-node-2
+    hostname: managed-node-2
+    privileged: true
+    command: /sbin/init
