@@ -1,0 +1,19 @@
+- name: remove installed php
+  yum:
+    name: "{{ item }}"
+    state: absent
+  with_items: "{{ uninstall_packages }}"
+
+- name: check if php:8.0 is installable
+  shell: dnf module list php | egrep 8.0
+  register: result
+  failed_when: result.rc != 0
+
+- name: enable php:8.0
+  shell: dnf module enable -y php:8.0
+
+- name: install packages
+  dnf:
+    name: "{{ item }}"
+    state: latest
+  with_items: "{{ install_packages }}"

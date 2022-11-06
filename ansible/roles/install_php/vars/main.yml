@@ -1,0 +1,6 @@
+uninstall_packages:
+  - php
+  - php-*
+
+install_packages:
+  - php

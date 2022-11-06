@@ -5,3 +5,5 @@
   roles:
     - role: install_apache
       tags: install_apache
+    - role: install_php
+      tags: install_php
