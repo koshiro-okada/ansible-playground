@@ -1,15 +1,16 @@
-- name: run "echo helloworld"
-  command: echo helloworld
-  register: result
+- name: install apache2
+  apt:
+    name: apache2
+    state: latest
 
-- name: check pattern1
-  assert:
-    that: check_word in result.stdout
-  vars:
-    check_word: "helloworld"
+- name: start apache2
+  service:
+    name: apache2
+    state: started
 
-- name: check pattern2
+- name: populate service facts
+  service_facts:
+
+- name: assert apache2 is running
   assert:
-    that: result.stdout.find(check_word) != -1
-  vars:
-    check_word: "helloworld"
+    that: ansible_facts.services.apache2.state == "running"
