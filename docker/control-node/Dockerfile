@@ -9,6 +9,5 @@ RUN apt-get update && \
 COPY control-node/.ssh/ /root/.ssh/
 RUN chmod 700 /root/.ssh
 RUN chmod 600 /root/.ssh/managed-node-key
-RUN chmod 600 /root/.ssh/known_hosts
 
 WORKDIR /root

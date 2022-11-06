@@ -1,16 +1,16 @@
-- name: install apache2
-  apt:
-    name: apache2
+- name: install httpd
+  dnf:
+    name: httpd
     state: latest
 
-- name: start apache2
+- name: start httpd
   service:
-    name: apache2
+    name: httpd
     state: started
 
 - name: populate service facts
   service_facts:
 
-- name: assert apache2 is running
+- name: assert httpd is running
   assert:
-    that: ansible_facts.services.apache2.state == "running"
+    that: ansible_facts.services['httpd.service'].state == "running"
