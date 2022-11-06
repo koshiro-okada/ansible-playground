@@ -8,6 +8,7 @@ Ansibleを学習するためのPlayground環境です
 
 ```
 cd docker
+docker-compose up -d --build
 docker-compose exec control-node bash
 cd ansible
 ansible-playbook -i test (インベントリファイル) setup-web-server.yml (プレイブックファイル)
