@@ -1,4 +1,4 @@
-- name: Setup Apache
+- name: Setup Web Servers
   hosts: web_servers
   gather_facts: true
 
