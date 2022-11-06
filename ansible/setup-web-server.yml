@@ -7,3 +7,5 @@
       tags: install_apache
     - role: install_php
       tags: install_php
+    - role: setup_php
+      tags: setup_php

@@ -1,0 +1,20 @@
+- name: copy config file
+  template:
+    src: www.conf
+    dest: /etc/php-fpm.d/www.conf
+    owner: apache
+    group: apache
+    mode: 0644
+
+- name: copy index.php
+  template:
+    src: index.php
+    dest: /var/www/html/index.php
+    owner: root
+    group: root
+    mode: 0644
+
+- name: restart httpd
+  service:
+    name: httpd
+    state: restarted
