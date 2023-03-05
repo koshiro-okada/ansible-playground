@@ -1,6 +1,4 @@
-FROM centos:8
-
-RUN sed -i -e 's/^mirrorlist/#mirrorlist/g' -e 's/^#baseurl=http:\/\/mirror/baseurl=http:\/\/vault/g' /etc/yum.repos.d/CentOS-*repo
+FROM quay.io/centos/centos:stream8
 
 RUN yum update -y && \
     yum install -y openssh-server && \
