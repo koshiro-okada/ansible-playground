@@ -16,7 +16,7 @@ services:
   managed-node-1:
     build:
       context: .
-      dockerfile: ./managed-nodes/Dockerfile
+      dockerfile: ./managed-node/Dockerfile
     container_name: managed-node-1
     hostname: managed-node-1
     privileged: true
@@ -26,7 +26,7 @@ services:
   managed-node-2:
     build:
       context: .
-      dockerfile: ./managed-nodes/Dockerfile
+      dockerfile: ./managed-node/Dockerfile
     container_name: managed-node-2
     hostname: managed-node-2
     privileged: true
@@ -36,7 +36,7 @@ services:
   managed-node-3:
     build:
       context: .
-      dockerfile: ./managed-nodes/Dockerfile
+      dockerfile: ./managed-node/Dockerfile
     container_name: managed-node-3
     hostname: managed-node-3
     privileged: true
